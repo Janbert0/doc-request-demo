@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Document Requests (Demo)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <strong>Registrar Document Requests</strong>
+    <button id="logoutBtn" class="hidden">Log out</button>
+  </header>
+
+  <main>
+    <!-- LOGIN -->
+    <section id="loginView" class="card narrow">
+      <h2>Sign in</h2>
+      <p class="muted">Demo only. There is no real password check.</p>
+      <form id="loginForm">
+        <label>Full name
+          <input id="loginName" required>
+        </label>
+        <label>Role
+          <select id="loginRole">
+            <option value="student">Student</option>
+            <option value="registrar">Registrar</option>
+          </select>
+        </label>
+        <label>Student number (students only)
+          <input id="loginNumber">
+        </label>
+        <button type="submit">Continue</button>
+      </form>
+    </section>
+
+    <!-- STUDENT -->
+    <section id="studentView" class="hidden">
+      <div class="card">
+        <h2>New document request</h2>
+        <form id="requestForm">
+          <label>Document
+            <select id="docType"></select>
+          </label>
+          <label>Number of copies
+            <input id="copies" type="number" min="1" max="10" value="1" required>
+          </label>
+          <label>Purpose
+            <input id="purpose" maxlength="200" required>
+          </label>
+          <p id="feeText" class="muted"></p>
+          <button type="submit">Submit request</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>My requests</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Reference</th>
+                <th>Document</th>
+                <th>Copies</th>
+                <th>Fee</th>
+                <th>Status</th>
+                <th>Remarks</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="myRequests"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRAR -->
+    <section id="registrarView" class="hidden">
+      <div class="card">
+        <h2>All requests</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Reference</th>
+                <th>Student</th>
+                <th>Document</th>
+                <th>Copies</th>
+                <th>Status</th>
+                <th>Update status</th>
+                <th>Remarks</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="allRequests"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
